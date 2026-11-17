@@ -16,6 +16,20 @@ Palette source: [Cyberpunk 2077 User Interface (Part 2)](https://www.behance.net
 | Supplemental | Blue | `#2570D4` |
 | Text | Grey | `#D6D0D0` |
 
+## Preview
+
+**TypeScript React**
+
+![TypeScript React](screenshots/tsx.png)
+
+**Liquid (HTML + CSS + Tailwind)**
+
+![Liquid](screenshots/liquid.png)
+
+**JSON**
+
+![JSON](screenshots/json.png)
+
 ## Install
 
 lazy.nvim:

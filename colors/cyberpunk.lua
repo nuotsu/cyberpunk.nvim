@@ -468,9 +468,14 @@ hl({
 
 -- Legacy syntax has no group for Tailwind at-rules, so add one
 local function tailwind_at_rules()
-  vim.cmd([[syntax match TailwindAtRule /@\%(theme\|utility\|custom-variant\|variant\|apply\|source\|plugin\|config\|reference\|layer\|tailwind\|screen\)\>/ containedin=ALL]])
-  -- everything after @apply up to ; or } (may span lines)
-  vim.cmd([[syntax region TailwindApplyValue start=/@apply\>/ end=/\ze[;}]/ keepend containedin=ALL]])
+  local at = [[/@\%(theme\|utility\|custom-variant\|variant\|apply\|source\|plugin\|config\|reference\|layer\|tailwind\|screen\)\>/]]
+  local apply = [[start=/@apply\>/ end=/\ze[;}]/ keepend]]
+  -- ALL alone misses rule bodies when css is embedded in <style> (html/liquid), so name cssDefinition too
+  for _, ctx in ipairs({ "ALL", "cssDefinition" }) do
+    vim.cmd("syntax match TailwindAtRule " .. at .. " containedin=" .. ctx)
+    -- everything after @apply up to ; or } (may span lines)
+    vim.cmd("syntax region TailwindApplyValue " .. apply .. " containedin=" .. ctx)
+  end
 end
 local tw_syntaxes = { css = true, scss = true, less = true, liquid = true, html = true }
 local aug = vim.api.nvim_create_augroup("CyberpunkTailwind", { clear = true })
