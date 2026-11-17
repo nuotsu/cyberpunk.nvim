@@ -1,5 +1,7 @@
 # cyberpunk.nvim
 
+![cyberpunk.nvim](screenshots/preview.png)
+
 A Neovim colorscheme based on the Cyberpunk 2077 UI palette: mainly **red on black**, with **cyan** and **amber** as accents and the secondary colors for supplemental roles.
 
 Palette source: [Cyberpunk 2077 User Interface (Part 2)](https://www.behance.net/gallery/133185623/Cyberpunk-2077User-Interface-(Part-2)) by Vladimír Vilímovský, © CD PROJEKT RED. This is an unofficial fan project.
